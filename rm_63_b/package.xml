@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>rm_63_b</name>
+  <version>0.0.0</version>
+  <description>rm_63_b metapackage</description>
+  <maintainer email="lucrezia.ponti2@studio.unibo.it">Lucrezia</maintainer>
+  <author email="lucrezia.ponti2@studio.unibo.it">Lucrezia</author>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rm_63_b_description</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
