@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: rm_63_b_description
+    relative_path: urdf/rm_63_b.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/rm_63_b.srdf
+  CONFIG:
+    author_name: LucreziaPonti
+    author_email: lucrezia.ponti2@studio.unibo.it
+    generated_timestamp: 1741931935

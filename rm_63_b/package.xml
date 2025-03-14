@@ -10,6 +10,7 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>rm_63_b_description</run_depend>
+  <run_depend>rm_63_b_moveit_config</run_depend>
 
   <export>
     <metapackage/>

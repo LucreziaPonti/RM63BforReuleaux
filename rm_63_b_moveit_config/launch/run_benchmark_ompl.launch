@@ -1,0 +1,25 @@
+<launch>
+
+  <!-- This argument must specify the list of .cfg files to process for benchmarking -->
+  <arg name="cfg" />
+  <arg name="ik_solver" default="kdl"/>
+  <arg name="dummy_base" default="false"/>
+
+  <!-- Load URDF -->
+  <include file="$(dirname)/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+    <arg name="ik_solver" value="$(arg ik_solver)"/>
+    <arg name="dummy_base" value="$(arg dummy_base)"/>
+  </include>
+
+  <!-- Start the database -->
+  <include file="$(dirname)/warehouse.launch">
+    <arg name="moveit_warehouse_database_path" value="moveit_ompl_benchmark_warehouse"/>
+  </include>
+
+  <!-- Start Benchmark Executable -->
+  <node name="$(anon moveit_benchmark)" pkg="moveit_ros_benchmarks" type="moveit_run_benchmark" args="$(arg cfg) --benchmark-planners" respawn="false" output="screen">
+    <rosparam command="load" file="$(find rm_63_b_moveit_config)/config/ompl_planning.yaml"/>
+  </node>
+
+</launch>
