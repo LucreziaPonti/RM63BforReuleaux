@@ -4,15 +4,15 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="rm_63_b_description">
   <link  name="base_footprint">
-    
+    <!--dummy base to easily simulate the robot mounted on a TurtleBot3 Waffle: 
+        the dimentions of the dummy correspond to the dimentions of the turtlebot-->
     <visual>
       <origin
-        xyz="0 0 0.1"
+        xyz="0 0 0.071"
         rpy="0 0 0" />
       <geometry>
-        <cylinder
-          radius="0.25"
-          length="0.2" />
+        <box
+          size="0.3 0.26 0.142" />
       </geometry>
       <material
         name="gray">
@@ -22,12 +22,11 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0.1"
+        xyz="0 0 0.071"
         rpy="0 0 0" />
       <geometry>
-        <cylinder
-          radius="0.25"
-          length="0.2" />
+        <box
+          size="0.3 0.26 0.142" />
       </geometry>
     </collision>
   </link>
@@ -35,7 +34,7 @@
     name="fixed_joint_base"
     type="fixed">
     <origin
-      xyz="0 0 0.2"
+      xyz="0 0 0.1425"
       rpy="0 0 0" />
     <parent
       link="base_footprint" />

@@ -1,9 +1,9 @@
 <launch>
   <arg  name="model" />
-  <arg  name="base"  default="false" />
+  <arg  name="dummy_base"  default="false" />
 
-  <param  name="robot_description"  textfile="$(find rm_63_b_description)/urdf/rm_63_b_description.urdf" unless="$(arg base)"/>
-  <param  name="robot_description"  textfile="$(find rm_63_b_description)/urdf/rm_63_b_base_description.urdf" if="$(arg base)"/>
+  <param  name="robot_description"  textfile="$(find rm_63_b_description)/urdf/rm_63_b_description.urdf" unless="$(arg dummy_base)"/>
+  <param  name="robot_description"  textfile="$(find rm_63_b_description)/urdf/rm_63_b_dummy_base_description.urdf" if="$(arg dummy_base)"/>
   
   <node  name="joint_state_publisher_gui"  pkg="joint_state_publisher_gui"  type="joint_state_publisher_gui" />
 
