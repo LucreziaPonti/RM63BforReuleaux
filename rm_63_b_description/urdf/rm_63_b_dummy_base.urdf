@@ -424,8 +424,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-6.28"
-      upper="6.28"
+      lower="-3.106"
+      upper="3.106"
       effort="100"
       velocity="1" />
   </joint>
@@ -434,7 +434,7 @@
   <joint name="manipulator_to_gripper" type="fixed">
     <parent link="link6"/>
     <child link="gripper_base"/>
-    <origin xyz="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 -1.57080 0"/>
   </joint>
 
   <link name="gripper_base">
@@ -445,19 +445,19 @@
     </inertial>
         <visual>
         <geometry>
-            <cylinder radius="0.02" length="0.03"/>
+            <cylinder radius="0.02" length="0.04"/>
         </geometry>
-        <origin rpy="0 0 0" xyz="0 0 0.015"/>
-        <material name="white">
+        <origin rpy="0 1.57080 0" xyz="0.02 0 0"/>
+        <material name="gray">
             <color rgba="1 1 1 1"/>
         </material>
         </visual>
     <collision>
-        <origin rpy="0 0 0" xyz="0 0 0.015"/>
+        <origin rpy="0 1.57080 0" xyz="0.02 0 0"/>
         <geometry>
             <cylinder 
                 radius="0.02"
-                length="0.03"/>
+                length="0.04"/>
         </geometry>
     </collision>
     
@@ -466,7 +466,8 @@
   <joint name="base_to_palm" type="fixed">
       <parent link="gripper_base"/>
       <child link="gripper_palm"/>
-      <origin xyz="0 0 0.03"/>
+      <origin xyz="0.04 0 0"
+      rpy="1.57080 0 1.57080"/>
   </joint>
 
   <link name="gripper_palm">
@@ -477,17 +478,17 @@
   </inertial>
     <visual>
       <geometry>
-        <box size="0.08 0.06 0.01"/>
+        <box size="0.11 0.06 0.02"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0.005"/>
-      <material name="white">
+      <origin rpy="0 0 0" xyz="0 0 0.01"/>
+      <material name="gray">
         <color rgba="1 1 1 1"/>
       </material>
     </visual>
   <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.005"/>
+      <origin rpy="0 0 0" xyz="0 0 0.01"/>
     <geometry>
-        <box size="0.08 0.06 0.01"/>
+        <box size="0.11 0.06 0.02"/>
     </geometry>
     <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
   </collision>
@@ -501,17 +502,17 @@
   </inertial>
     <visual>
       <geometry>
-        <box size="0.01 0.04 0.05"/>
+        <box size="0.01 0.04 0.1"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0.025"/>
-      <material name="white">
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <material name="gray">
         <color rgba="1 1 1 1"/>
       </material>
     </visual>
   <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.025"/>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
     <geometry>
-        <box size="0.01 0.04 0.05"/>
+        <box size="0.01 0.04 0.1"/>
     </geometry>
     <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
   </collision>
@@ -519,7 +520,7 @@
 
   <joint name="palm_to_left_finger" type="prismatic">
     <axis xyz="1 0 0"/>
-    <limit effort="1.0" lower="0" upper="0.03" velocity="0.5"/>
+    <limit effort="1.0" lower="0" upper="0.045" velocity="0.5"/>
     <parent link="gripper_palm"/>
     <child link="gripper_left_finger"/>
     <origin xyz="-0.008 0 0.011" rpy="0 0 3.14"/>
@@ -533,17 +534,17 @@
   </inertial>
     <visual>
       <geometry>
-        <box size="0.01 0.04 0.05"/>
+        <box size="0.01 0.04 0.1"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0.025"/>
-      <material name="white">
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <material name="gray">
         <color rgba="1 1 1 1"/>
       </material>
     </visual>
   <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.025"/>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
     <geometry>
-        <box size="0.01 0.04 0.05"/>
+        <box size="0.01 0.04 0.1"/>
     </geometry>
     <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
   </collision>
@@ -551,10 +552,11 @@
 
   <joint name="palm_to_right_finger" type="prismatic">
     <axis xyz="1 0 0"/>
-    <limit effort="1.0" lower="0" upper="0.03" velocity="0.5"/>
+    <limit effort="1.0" lower="0" upper="0.045" velocity="0.5"/>
     <parent link="gripper_palm"/>
     <child link="gripper_right_finger"/>
     <origin xyz="0.008 0 0.011" rpy="0 0 0"/>
   </joint>
+
 
 </robot>

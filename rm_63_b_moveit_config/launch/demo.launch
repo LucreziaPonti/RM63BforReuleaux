@@ -2,7 +2,7 @@
 
   <!--extra args-->
   <arg name="ik_solver" default="kdl"/>
-  <arg name="dummy_base" default="true"/>
+  <arg name="dummy_base" default="false"/>
 
   <!-- specify the planning pipeline -->
   <arg name="pipeline" default="ompl" />
